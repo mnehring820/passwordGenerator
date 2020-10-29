@@ -46,14 +46,18 @@ function generatePassword() {
   } while (passLength < 8 || passLength > 128 || isNaN(passLength) === true || Math.floor(passLength) !== Number(passLength));
 
 
+  do{
+    var capital = confirm("Do you want capital letters?");
+    var lower = confirm("Do you want lower-case letters?");
+    var numbs = confirm("Do you want to include numbers?");
+    var special = confirm("Do you want to include special characters? (ex. #, !. $, %... etc.)");
 
+    
+    if(lower === false && capital === false && numbs === false && special === false){
+      alert("Please select at least one character type");
+    }
 
-
-  var capital = confirm("Do you want capital letters?")
-  var lower = confirm("Do you want lower-case letters?");
-  var numbs = confirm("Do you want to include numbers?");
-  var special = confirm("Do you want to include special characters? (ex. #, !. $, %... etc.)");
-  
+  } while (lower === false && capital === false && numbs === false && special === false);
   var passCharacters = ""
 
   if (lower) {
